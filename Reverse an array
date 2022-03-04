@@ -1,0 +1,35 @@
+//reverse an array in C
+#include<stdio.h>
+#include<stdlib.h>
+void reverseArray(int arr[],int start, int end){
+	int temp;
+	if (start>=end) return;
+	temp=arr[start];
+	arr[start]=arr[end];
+	arr[end]=temp;
+	reverseArray(arr,start+1,end-1);
+}
+
+void printArray(int arr[],int size){
+	int i;
+	for(i=0;i<size;i++)
+		printf("%d ",arr[i]);
+	printf("\n");
+}
+int main(){
+	int size=0,arr[100],i=0;
+	printf("Enter size: ");
+	scanf("%d",&size);
+	printf("Enter array: \n");
+	for(i=0;i<size;i++){
+		scanf("%d",&arr[i]);
+	}
+	printf("Entered array is: ");
+	printArray(arr,size);
+	reverseArray(arr,0,size-1);
+	printf("Reversed array is: ");
+	printArray(arr,size);
+	return 0;
+	
+}
+
