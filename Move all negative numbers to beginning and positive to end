@@ -1,0 +1,12 @@
+def rearrange(arr):
+    j=0
+    n=len(arr)
+    for i in range(n):
+        if(arr[i]<0):
+            temp=arr[i]
+            arr[i]=arr[j]
+            arr[j]=temp
+            j+=1
+    print(*arr)
+arr=list(map(int,input().split()))
+rearrange(arr)
