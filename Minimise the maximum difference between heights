@@ -1,0 +1,24 @@
+def getMinDiff(arr, n, k):
+        # code here
+        arr.sort()
+        x=arr[n-1]-arr[0]
+        u=arr[n-1]-k
+        l=arr[0]+k
+        if u<0:
+            return x
+        if u-l<0:
+            temp=u
+            u=l
+            l=temp
+        for i in range(n):
+            if l<=arr[i]-k<=u or l<=arr[i]+k<=u:
+                continue
+            if arr[i]-k>=0:
+                x=min(x,u-(arr[i]-k))
+            u=arr[i]+k
+        return min(x,u-l)
+        
+     arr=list(map(int,input().split()))
+     k=int(input())
+     n=len(arr)
+     print(getMinDiff(arr,n,k))
