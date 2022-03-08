@@ -1,0 +1,18 @@
+def maxSubarraySum(arr,n):
+  neg=all(x<0 for i in arr)
+  if neg==True:
+    return max(arr)
+  else:
+    currSum=0
+    maxSum=0
+    for i in range(0,n):
+      currSum+=arr[i]
+      if currSum>maxSum:
+        maxSum=currSum
+      if currSum<0:
+        currSum=0
+  return maxSum
+  
+arr=list(map(int,input().split()))
+n=len(arr)
+print(maxSubArraySum(arr,n))
