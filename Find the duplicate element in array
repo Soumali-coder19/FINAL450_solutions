@@ -1,0 +1,10 @@
+from collections import Counter
+def findDuplicate(nums):
+    dict1={}
+    dict1=Counter(nums)
+    val_max=max(list(dict1.values()))
+    key_1=[key for key,val in dict1.items() if val==val_max]
+    return key_1[0]
+arr=list(map(int,input().split()))
+print(findDuplicate(arr))
+
